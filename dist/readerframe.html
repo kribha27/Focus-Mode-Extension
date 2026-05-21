@@ -1,0 +1,42 @@
+<!-- src/readerFrame.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="readerOverlay.css" />
+  <title>Reader</title>
+</head>
+<body>
+  <div id="reader-app" role="dialog" aria-modal="true">
+    <div id="topbar" role="toolbar">
+      <div id="left-controls">
+        <button id="closeBtn" aria-label="Close reader">✕</button>
+        <button id="saveBtn" aria-label="Save article">Save</button>
+        <button id="exportBtn" aria-label="Export article">Export</button>
+      </div>
+
+      <div id="center-title" aria-hidden="true"></div>
+
+      <div id="right-controls">
+        <button id="themeBtn" aria-label="Toggle theme">Theme</button>
+        <button id="decreaseFont" aria-label="Decrease font">A−</button>
+        <button id="increaseFont" aria-label="Increase font">A+</button>
+        <button id="timerBtn" aria-label="Start/pause timer">⏱</button>
+      </div>
+    </div>
+
+    <main id="article-container" tabindex="0">
+      <article id="article-content"></article>
+    </main>
+
+    <div id="bottombar" hidden>
+      <div id="timerDisplay">00:00</div>
+      <button id="timerStop">Stop</button>
+    </div>
+  </div>
+
+  <script src="vendor/readability.js"></script>
+  <script src="readerOverlay.js"></script>
+</body>
+</html>

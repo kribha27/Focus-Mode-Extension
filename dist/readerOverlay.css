@@ -1,0 +1,109 @@
+/* src/readerOverlay.css - simple, clean reader styles */
+
+:root{
+  --bg: #ffffff;
+  --fg: #111827;
+  --accent: #0066cc;
+  --max-width: 780px;
+  --font-family: "Georgia", "Serif";
+  --line-height: 1.7;
+  --padding: 28px;
+}
+
+/* Dark theme class toggled by JS */
+.dark {
+  --bg: #0b1220;
+  --fg: #e6eef8;
+  --accent: #58a6ff;
+}
+
+* { box-sizing: border-box; }
+html,body{ height:100%; margin:0; font-family:var(--font-family); background:transparent; }
+
+/* App wrapper full-viewport inside iframe */
+#reader-app {
+  width:100%;
+  height:100%;
+  background:var(--bg);
+  color:var(--fg);
+  display:flex;
+  flex-direction:column;
+}
+
+/* Top bar */
+#topbar {
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:6px 12px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  background:linear-gradient(0deg, rgba(0,0,0,0.02), transparent);
+}
+
+#topbar button {
+  background:transparent;
+  border:none;
+  color:var(--fg);
+  padding:8px;
+  margin-right:6px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+#center-title {
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-weight:600;
+}
+
+/* Article area */
+#article-container {
+  overflow:auto;
+  padding: var(--padding);
+  flex:1 1 auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#article-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-size:18px;
+  line-height: var(--line-height);
+  color:var(--fg);
+}
+
+/* Headings and images */
+#article-content h1 { font-size:28px; margin-bottom:0.3em; }
+#article-content img { max-width:100%; height:auto; display:block; margin:0.8em 0; }
+
+/* Bottom bar (timer) */
+#bottombar {
+  height:56px;
+  border-top:1px solid rgba(0,0,0,0.06);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 12px;
+}
+
+/* Highlight style (inline) */
+.reader-highlight {
+  background: yellow;
+  color: inherit;
+  padding: 0 2px;
+}
+
+/* Accessibility focus */
+button:focus, [tabindex]:focus {
+  outline: 3px solid rgba(0,102,204,0.18);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width:600px) {
+  :root { --padding: 16px; --font-family: system-ui, "Segoe UI", Roboto, Arial; --font-size:16px; }
+  #topbar { height:48px; }
+  #article-content { font-size:16px; }
+}
